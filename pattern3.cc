@@ -11,6 +11,20 @@
 */
 #include <iostream>
 using namespace std;
+
+void printStars(int n){
+    for(int i = 0; i < n; ++i){
+        cout << "*";
+    }
+}
+
+void printSpaces(int n){
+    for(int i = 0; i < n; ++i){
+        cout << " ";
+    }
+}
+
+
 int main(){
     int nLines; 
     cin >> nLines;
@@ -19,16 +33,10 @@ int main(){
 
     // print nLines
     for(int lineNo = 1; lineNo <= incLines; ++lineNo){
-        // print spaces
         int nSpaces = incLines - lineNo;
-        for(int curSpace = 1; curSpace <= nSpaces; ++curSpace){
-            cout << " ";
-        }
-        // print stars
+        printSpaces(nSpaces);
         int nStars = 2 * lineNo - 1;
-        for(int curStar = 1; curStar <= nStars; ++curStar){
-            cout << "*";
-        }
+        printStars(nStars);
         cout << endl;
     }
 
@@ -39,5 +47,13 @@ int main(){
         *
     */
     int decLines = nLines - incLines;
+    for(int curLine = decLines; curLine >= 1; --curLine){
+        int nSpaces = decLines - curLine + 1;
+        printSpaces(nSpaces);
+        int nStars = 2 * curLine - 1; 
+        printStars(nStars);
+        cout << endl;
+    }
+
     
 }
